@@ -1,26 +1,21 @@
 import { FC } from 'react';
 import { useLanguage } from 'features/language/index';
+import { LanguageButton, LanguageContainer } from './lenguage.Styled';
 
 const LanguageComponent: FC = () => {
   const { language, setLanguage, t } = useLanguage();
   return (
-    <div className={'language'}>
-      <button
-        onClick={() => setLanguage('SPANISH')}
-        className={language === 'SPANISH' ? 'language-button active' : 'language-button'}>
+    <LanguageContainer>
+      <LanguageButton language={language} onClick={() => setLanguage('SPANISH')}>
         {t('language.spanish')}
-      </button>
-      <button
-        onClick={() => setLanguage('ENGLISH')}
-        className={language === 'ENGLISH' ? 'language-button active' : 'language-button'}>
+      </LanguageButton>
+      <LanguageButton language={language} onClick={() => setLanguage('ENGLISH')}>
         {t('language.english')}
-      </button>
-      <button
-        onClick={() => setLanguage('PORTUGUESE')}
-        className={language === 'PORTUGUESE' ? 'language-button active' : 'language-button'}>
+      </LanguageButton>
+      <LanguageButton language={language} onClick={() => setLanguage('PORTUGUESE')}>
         {t('language.portuguese')}
-      </button>
-    </div>
+      </LanguageButton>
+    </LanguageContainer>
   );
 };
 export default LanguageComponent;
